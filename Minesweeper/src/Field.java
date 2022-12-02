@@ -1,4 +1,8 @@
+import cells.Cell;
+
 public class Field {
+
+    final private Cell[] field = new Cell[99];
 
     public void appRun() {
 
@@ -9,10 +13,14 @@ public class Field {
     }
 
     private void creationField() {
-
+        
     }
 
     private void playing() {
+
+    }
+
+    private void printField() {
 
     }
 

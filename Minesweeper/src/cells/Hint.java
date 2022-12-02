@@ -1,16 +1,16 @@
 package cells;
 
 public class Hint extends Cell {
-    String count;
+    String status;
 
-    Hint () {
+    public Hint () {
 
     }
 
-    public void setCount(int number) {
-        count = number + "";
+    public void setStatus(int number) {
+        status = number + "";
     }
     public String toString() {
-        return count;
+        return status;
     }
 }

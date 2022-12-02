@@ -3,13 +3,14 @@ package cells;
 // type of Cell: 1 = Free, 2 = Hint, 3 = Mine
 
 public class Cell {
+    String status;
 
-    Cell () {
-
+    public Cell() {
+        status = ".";
     }
 
     public String toString() {
-        return ".";
+        return status;
     }
 
 }

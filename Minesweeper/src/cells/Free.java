@@ -1,7 +1,12 @@
 package cells;
 
 public class Free extends Cell {
-    String status;
+    private String status;
+    final private String trueStatus = "/";
+
+    public Free () {
+        status = trueStatus;
+    }
 
     public String toString() {
         return status;

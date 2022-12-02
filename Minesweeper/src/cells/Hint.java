@@ -1,15 +1,15 @@
 package cells;
 
 public class Hint extends Cell {
-    String status;
+    private String status;
 
-    public Hint () {
 
-    }
-
-    public void setStatus(int number) {
+    public Hint (int number) {
         status = number + "";
+        final String trueStatus = status;
     }
+
+
     public String toString() {
         return status;
     }

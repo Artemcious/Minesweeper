@@ -1,10 +1,10 @@
 package cells;
 
 public class Mine extends Cell {
-    String status;
-
+    private String status;
+    private final String trueStatus = "X";
     public Mine () {
-
+        status = trueStatus;
     }
 
     public String toString() {

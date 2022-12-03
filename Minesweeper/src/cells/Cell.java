@@ -1,7 +1,5 @@
 package cells;
 
-// type of Cell: 1 = Free, 2 = Hint, 3 = Mine
-
 import java.util.Objects;
 
 public class Cell {

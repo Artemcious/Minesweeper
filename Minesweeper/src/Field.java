@@ -9,6 +9,7 @@ public class Field {
     private int countMines;
     int x;
     int y;
+    boolean winCondition = true;
 
     public void appRun() {
         greetingsPlayer();
@@ -33,26 +34,36 @@ public class Field {
     }
 
     private void playing() {
-        System.out.println("Select coordinates x/y and action_ ");
-        x = s.nextInt();
-        y = s.nextInt();
+        do {
+            System.out.println("Select coordinates x/y and action_ ");
+            x = s.nextInt();
+            y = s.nextInt();
+            printField();
+        } while (winCondition);
+
         printField();
+        System.out.println("Congratulations! You stayed alive.");
+
+
+    }
+
+    private void turn() {
+
     }
 
     private void printField() {
-        System.out.print(" ");
-        System.out.print("123456789");
-        System.out.println(" ");
-        System.out.println("-----------");
-        for (int i = 0; i < 9; i++) {
+
+        System.out.println(" |123456789|");
+        System.out.println("-|---------|");
+        for (int i = 1; i < 10; i++) {
             System.out.print(i);
             System.out.print("|");
             for (int j = 0; j < 9;j++) {
-                System.out.print(field[i][j]);
+                System.out.print(field[i-1][j]);
             }
             System.out.println("|");
         }
-        System.out.println("-----------");
+        System.out.println("-|---------|");
     }
 
 }

@@ -1,14 +1,17 @@
 import cells.Cell;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Field {
 
     final private Cell[][] field = new Cell[9][9];
     final private Scanner s = new Scanner(System.in);
-    private int countMines;
-    int x;
-    int y;
+    final private Random r = new Random();
+    public static int countMines;
+    private int x;
+    private int y;
+    private String action;
     boolean winCondition = true;
 
     public void appRun() {
@@ -19,9 +22,10 @@ public class Field {
 
     private void greetingsPlayer() {
         System.out.println("Welcome to game Minesweeper! I hope u know rules.");
-        System.out.println("_ Select number of mines!");
+        System.out.println("Select number of mines! _");
         countMines = s.nextInt();
         System.out.println("Memo rules: Select coordinates x/y and action ( 1 2 open, 5 5 flag )");
+        spawnMine();
     }
 
     private void creationField() {
@@ -35,10 +39,15 @@ public class Field {
 
     private void playing() {
         do {
-            System.out.println("Select coordinates x/y and action_ ");
+            System.out.println("Select coordinates x/y and action. _");
             x = s.nextInt();
             y = s.nextInt();
+            action = s.next();
+            if (turn()) {
+                return;
+            }
             printField();
+
         } while (winCondition);
 
         printField();
@@ -46,8 +55,31 @@ public class Field {
 
 
     }
+    private boolean turn() {
+        switch (action) {
+            case "open": {
+                if (field[y][x].getClass().equals("class Mine")) {
+                    System.out.println("You boomed!");
+                    return true;
+                }
 
-    private void turn() {
+
+                break;
+            }
+            case "flag": {
+
+                field[y][x].flagging();
+                if (field[y][x].getClass().equals("class Mine") && field[y][x].equals("*")) {
+                    countMines--;
+                }
+                if
+
+            }
+        }
+        return true;
+    }
+
+    private void spawnMine() {
 
     }
 

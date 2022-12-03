@@ -1,7 +1,5 @@
 package cells;
 
-import java.util.Objects;
-
 public class Cell {
     private String status;
     private final String trueStatus = ".";

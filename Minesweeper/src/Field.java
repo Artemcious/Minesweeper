@@ -1,4 +1,5 @@
 import cells.Cell;
+import cells.Mine;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -8,10 +9,10 @@ public class Field {
     final private Cell[][] field = new Cell[9][9];
     final private Scanner s = new Scanner(System.in);
     final private Random r = new Random();
-    public static int countMines;
     private int x;
     private int y;
     private String action;
+    private int countMines;
     boolean winCondition = true;
 
     public void appRun() {
@@ -50,37 +51,47 @@ public class Field {
 
         } while (winCondition);
 
-        printField();
         System.out.println("Congratulations! You stayed alive.");
 
 
     }
     private boolean turn() {
         switch (action) {
+
             case "open": {
                 if (field[y][x].getClass().equals("class Mine")) {
                     System.out.println("You boomed!");
                     return true;
                 }
 
+                for ()
 
                 break;
             }
+
             case "flag": {
-
                 field[y][x].flagging();
-                if (field[y][x].getClass().equals("class Mine") && field[y][x].equals("*")) {
-                    countMines--;
-                }
-                if
+                if (Cell.winNumeration == 0) {
+                    winCondition = false;
+                    return false;
 
+                }
+                break;
             }
         }
         return true;
     }
 
     private void spawnMine() {
-
+        for (int i = 0; i < countMines; i++) {
+            int rx = r.nextInt(8);
+            int ry = r.nextInt(8);
+            if (field[ry][rx].getClass().equals("class Mine")) {
+                i--;
+                continue;
+            }
+            field[ry][rx] = new Mine();
+        }
     }
 
     private void printField() {

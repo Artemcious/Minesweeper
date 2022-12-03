@@ -10,7 +10,8 @@ public class Free extends Cell {
 
     @Override
     public void flagging() {
-        super.flagging();
+        System.out.println("Here free space!");
+
     }
 
     @Override

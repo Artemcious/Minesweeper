@@ -5,13 +5,19 @@ public class Mine extends Cell {
     private final String trueStatus = "X";
 
     public Mine() {
-        super();
+        winNumeration++;
+
     }
 
 
     @Override
     public void flagging() {
-        super.flagging();
+        status = status.equals("*") ? "." : "*";
+        if (this.equals("*")) {
+            winNumeration--;
+        } else {
+            winNumeration++;
+        }
     }
 
     @Override
